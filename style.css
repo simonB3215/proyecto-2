@@ -24,12 +24,13 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body, html {
   font-family: var(--font-body);
   background-color: var(--bg-dark);
   color: var(--text-light);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* ===== Typography & Utilities ===== */
@@ -608,8 +609,8 @@ h1, h2, h3, .logo {
   background: #080505; /* slightly darker to anchor the page */
 }
 
-/* Mobile optimizations for footer */
-@media (max-width: 767px) {
+/* Mobile optimizations for footer & general layout */
+@media (max-width: 768px) {
   .footer-grid {
     text-align: center;
     gap: 2rem;
@@ -622,6 +623,16 @@ h1, h2, h3, .logo {
   
   .social-icons {
     justify-content: center;
+  }
+  
+  .footer-brand .logo {
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+  
+  .footer-links ul, .footer-contact ul {
+    padding: 0;
+    margin: 0;
   }
 }
 
