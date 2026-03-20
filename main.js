@@ -17,26 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mobile Menu Toggle logic (simple)
+  // Mobile Menu Toggle logic (clean via CSS class)
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const navContainer = document.querySelector('.nav-links');
   
   if (mobileBtn) {
     mobileBtn.addEventListener('click', () => {
-      if (navContainer.style.display === 'flex') {
-        navContainer.style.display = 'none';
-      } else {
-        navContainer.style.display = 'flex';
-        navContainer.style.flexDirection = 'column';
-        navContainer.style.position = 'absolute';
-        navContainer.style.top = '100%';
-        navContainer.style.left = '0';
-        navContainer.style.width = '100%';
-        navContainer.style.background = 'var(--bg-darker)';
-        navContainer.style.padding = '1rem 0';
-      }
+      navContainer.classList.toggle('active');
     });
   }
+
+  // Also close mobile menu when a link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (navContainer && navContainer.classList.contains('active')) {
+        navContainer.classList.remove('active');
+      }
+      
+      const targetId = e.currentTarget.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
 
   // ==== Intersection Observer for Section Transitions (4 transitions) ====
   
