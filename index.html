@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Dorado - Premium Chinese Cuisine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar fade-in-down">
+      <a href="#hero" class="logo">El Dorado</a>
+      <nav class="nav-links">
+        <a href="#hero">Inicio</a>
+        <a href="#products">Menú</a>
+        <a href="#about">Nosotros</a>
+        <a href="#gallery">Galería</a>
+        <a href="#reviews">Reseñas</a>
+        <a href="#info">Info</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Abrir menú">☰</button>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title animate-title gold-gradient-text" style="display: inline-block;">El Arte Imperial de la <br>Alta Cocina China</h1>
+        <p class="hero-subtitle animate-subtitle">Cocina china de autor en un ambiente elegante y exclusivo.</p>
+        <a href="#products" class="btn btn-primary animate-btn">Descubrir el Menú</a>
+      </div>
+      <div class="scroll-indicator bounce">
+        ↓
+      </div>
+    </section>
+
+    <!-- 2. Product Section -->
+    <section id="products" class="section slide-transition hidden">
+      <div class="container section-grid">
+        <div class="image-wrapper">
+          <img src="/products.png" alt="Platos exquisitos de El Dorado" class="product-img" />
+        </div>
+        <div class="text-content">
+          <h2 class="section-title">El Arte de Nuestro Menú</h2>
+          <div class="separator"></div>
+          <p>En El Dorado, cada plato es una obra maestra. Seleccionamos cuidadosamente ingredientes frescos para ofrecerte desde nuestros clásicos Dim Sum al vapor hasta el crujiente y aromático Pato Pekín.</p>
+          <ul class="features-list">
+            <li><span class="gold-dot"></span> Dim Sum y Dumplings Artesanales</li>
+            <li><span class="gold-dot"></span> Pato Pekín Tradicional</li>
+            <li><span class="gold-dot"></span> Cerdo Agridulce Premium</li>
+            <li><span class="gold-dot"></span> Especialidades del Chef</li>
+          </ul>
+          <a href="#info" class="btn btn-outline">Reserva tu mesa</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. About Us Section -->
+    <section id="about" class="section reverse-grid fade-transition hidden">
+      <div class="container section-grid">
+        <div class="text-content">
+          <h2 class="section-title">Nuestra Historia</h2>
+          <div class="separator"></div>
+          <p>Fundado por el maestro chef Li Wei, El Dorado nace del deseo de transportar los verdaderos sabores de la Ruta de la Seda a un entorno contemporáneo de lujo. Nuestra filosofía combina técnicas ancestrales con una presentación vanguardista.</p>
+          <p>Un tributo a la rica herencia culinaria de China, donde cada comida es un banquete digno de emperadores, diseñado para despertar todos tus sentidos.</p>
+        </div>
+        <div class="image-wrapper decorative-dragon">
+          <img src="/dragon.png" alt="Dragón Imperial" class="dragon-motif-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section fade-transition hidden">
+      <div class="container">
+        <h2 class="section-title text-center">Galería Visual</h2>
+        <div class="separator mx-auto"></div>
+        <div class="gallery-grid">
+          <div class="gallery-item hover-lift"><img src="/hero.png" alt="Hero"></div>
+          <div class="gallery-item hover-lift"><img src="/products.png" alt="Products"></div>
+          <div class="gallery-item hover-lift"><img src="/pork.png" alt="Cerdo Agridulce"></div>
+          <div class="gallery-item hover-lift"><img src="/dimsum.png" alt="Dim Sum"></div>
+          <div class="gallery-item hover-lift"><img src="/duck.png" alt="Peking Duck"></div>
+          <div class="gallery-item hover-lift"><img src="/noodles.png" alt="Noodles"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section slide-transition hidden">
+      <div class="container">
+        <h2 class="section-title text-center">Reseñas de Nuestros Comensales</h2>
+        <div class="separator mx-auto"></div>
+        <div class="reviews-grid">
+          <div class="review-card hover-lift">
+            <div class="stars text-primary">★★★★★</div>
+            <p>"Una experiencia majestuosa. La atención al detalle y los sabores auténticos te transportan a otra dimensión."</p>
+            <h4 class="gold-gradient-text mt-1">- Carlos M.</h4>
+          </div>
+          <div class="review-card hover-lift">
+            <div class="stars text-primary">★★★★★</div>
+            <p>"El pato pekinés es el mejor que he probado. El dragón en el salón te envuelve en una atmósfera de lujo total."</p>
+            <h4 class="gold-gradient-text mt-1">- Sofía R.</h4>
+          </div>
+          <div class="review-card hover-lift">
+            <div class="stars text-primary">★★★★★</div>
+            <p>"La fusión perfecta entre lo tradicional milenario y el lujo elegante. Altamente recomendado para cenas especiales."</p>
+            <h4 class="gold-gradient-text mt-1">- Daniel T.</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Info Section -->
+    <section id="info" class="section scale-transition hidden">
+      <div class="container">
+        <h2 class="section-title text-center">Información y Horarios</h2>
+        <div class="separator mx-auto"></div>
+        <div class="info-grid">
+          <div class="info-card hover-lift">
+            <h3 class="info-heading">Ubicación</h3>
+            <p>Av. Principal 1234, Planta Alta</p>
+            <p>Distrito Gastronómico, Ciudad</p>
+          </div>
+          <div class="info-card hover-lift">
+            <h3 class="info-heading">Horarios</h3>
+            <p>Lun - Jue: 12:30 PM - 11:00 PM</p>
+            <p>Vie - Sáb: 12:30 PM - 12:30 AM</p>
+            <p>Domingo: 1:00 PM - 10:00 PM</p>
+          </div>
+          <div class="info-card hover-lift">
+            <h3 class="info-heading">Servicio Premium</h3>
+            <p>Disfruta de nuestra gastronomía en casa con nuestro exclusivo servicio de <strong>Delivery y Takeaway</strong>.</p>
+            <p>Empaques térmicos de lujo para garantizar la mejor experiencia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section id="contact" class="section slide-up-transition hidden">
+      <div class="container flex-center">
+        <div class="contact-box">
+          <h2 class="section-title text-center">Contáctanos</h2>
+          <div class="separator mx-auto"></div>
+          <p class="text-center mb-2">Déjanos un mensaje o solicita tu reservación especial.</p>
+          
+          <div class="whatsapp-container text-center" style="margin-top: 2rem;">
+            <p style="margin-bottom: 1.5rem; color: var(--text-gray);">Atención personalizada al instante para tus reservas.</p>
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp slide-transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              Reserva por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 El Dorado. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
