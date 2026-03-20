@@ -80,39 +80,65 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.forEach(el => observer.observe(el));
   });
 
-  // ==== Draggable Gallery ====
-  const slider = document.querySelector('.gallery-grid');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  // ==== Carousels (Draggable & Buttons) ====
+  const carousels = document.querySelectorAll('.carousel-wrapper');
+  
+  carousels.forEach(wrapper => {
+    const track = wrapper.querySelector('.carousel-track');
+    const prevBtn = wrapper.querySelector('.prev');
+    const nextBtn = wrapper.querySelector('.next');
+    
+    if (!track) return;
 
-  if (slider) {
-    slider.addEventListener('mousedown', (e) => {
+    // --- Button Navigation ---
+    const getScrollAmount = () => {
+      const firstChild = track.children[0];
+      return firstChild ? firstChild.offsetWidth + parseFloat(getComputedStyle(track).gap || 0) : 300;
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      });
+    }
+
+    // --- Drag Navigation ---
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    track.addEventListener('mousedown', (e) => {
       isDown = true;
-      slider.classList.add('active');
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-      slider.style.scrollSnapType = 'none'; // Smooth dragging
+      track.style.cursor = 'grabbing';
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.style.scrollSnapType = 'none'; // Smooth dragging
     });
     
-    slider.addEventListener('mouseleave', () => {
+    track.addEventListener('mouseleave', () => {
       isDown = false;
-      slider.classList.remove('active');
-      slider.style.scrollSnapType = 'x mandatory';
+      track.style.cursor = 'grab';
+      track.style.scrollSnapType = 'x mandatory';
     });
     
-    slider.addEventListener('mouseup', () => {
+    track.addEventListener('mouseup', () => {
       isDown = false;
-      slider.classList.remove('active');
-      slider.style.scrollSnapType = 'x mandatory';
+      track.style.cursor = 'grab';
+      track.style.scrollSnapType = 'x mandatory';
     });
     
-    slider.addEventListener('mousemove', (e) => {
+    track.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll fast multiplier
-      slider.scrollLeft = scrollLeft - walk;
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 2; 
+      track.scrollLeft = scrollLeft - walk;
     });
-  }
+  });
 });

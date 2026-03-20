@@ -61,7 +61,7 @@ h1, h2, h3, .logo {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   margin-bottom: 1rem;
   letter-spacing: 2px;
 }
@@ -333,11 +333,13 @@ h1, h2, h3, .logo {
   display: flex;
   overflow-x: auto;
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-bottom: 2rem;
   scroll-snap-type: x mandatory;
   user-select: none;
   cursor: grab;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide for Firefox */
 }
 
 .gallery-grid.active {
@@ -345,15 +347,56 @@ h1, h2, h3, .logo {
 }
 
 .gallery-grid::-webkit-scrollbar {
-  height: 6px;
+  display: none; /* Hide for Chrome/Safari */
 }
-.gallery-grid::-webkit-scrollbar-track {
-  background: var(--bg-card);
-  border-radius: 10px;
+
+/* Carousel controls */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0; /* Important fix for flexing grids */
 }
-.gallery-grid::-webkit-scrollbar-thumb {
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 7, 7, 0.9);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  padding: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.carousel-control:hover {
   background: var(--primary-color);
-  border-radius: 10px;
+  color: var(--bg-darker);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control.prev {
+  left: -10px;
+}
+
+.carousel-control.next {
+  right: -10px;
+}
+
+@media (min-width: 768px) {
+  .carousel-control.prev { left: -22px; }
+  .carousel-control.next { right: -22px; }
 }
 
 .gallery-item {
@@ -385,23 +428,35 @@ h1, h2, h3, .logo {
 }
 
 .reviews-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  overflow-x: auto;
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
-@media (min-width: 768px) {
-  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+.reviews-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .review-card {
+  flex: 0 0 85vw;
+  scroll-snap-align: center;
   background: var(--bg-card);
   padding: 3rem 2rem;
   text-align: center;
   border-radius: 8px;
   border-top: 4px solid var(--secondary-color);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (min-width: 768px) {
+  .review-card {
+    flex: 0 0 350px;
+  }
 }
 
 .stars {
@@ -722,7 +777,9 @@ h1, h2, h3, .logo {
   }
   
   .section {
-    padding: 5rem 0;
+    padding: 6rem 0 3rem;
+    display: block;
+    min-height: auto;
   }
   
   .contact-box {
