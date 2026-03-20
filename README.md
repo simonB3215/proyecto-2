@@ -34,18 +34,4 @@ El sitio estará disponible, por defecto, en `http://localhost:5173`.
 - `npm run build`: Construye la versión optimizada para producción (se genera en la carpeta `/dist`).
 - `npm run preview`: Sirve localmente la versión de producción para verificarla antes del despliegue.
 
-## ☁️ Despliegue en Netlify
 
-El proyecto ya cuenta con un archivo de configuración `netlify.toml` preparado para un despliegue automático exitoso al conectarlo a Netlify. 
-
-Pasos a seguir:
-1. Sube este repositorio a tu cuenta de GitHub, GitLab o Bitbucket.
-2. Inicia sesión en [Netlify](https://app.netlify.com/).
-3. Haz clic en **"Add new site"** -> **"Import an existing project"**.
-4. Selecciona tu proveedor de repositorios y vincula el repositorio de este proyecto.
-5. Asegúrate de que los ajustes de construcción sean los siguientes (deberían inferirse automáticamente del archivo `netlify.toml`):
-   - **Build command**: `npm run build`
-   - **Publish directory**: `dist`
-6. Haz clic en **"Deploy site"**.
-
-¡Listo! Netlify se encargará de construir y publicar el sitio. Cada vez que hagas un push a la rama principal (`main`/`master`), tu sitio se actualizará automáticamente.
